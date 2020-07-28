@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "米宝购物",
+  "usingComponents": {
+    "SearchInput":"../../component/SearchInput/SearchInput"
+  }
+}

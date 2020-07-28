@@ -1,0 +1,10 @@
+<view >
+  <SearchInput></SearchInput>
+</view>
+<view class="swiper-box">
+  <swiper class="swiper" interval="1000" indicator-dots="{{true}}"
+   autoplay="{{true}}"
+   circular="{{true}}">
+    <swiper-item class="swiper_item" wx:for="{{imglisg}}" ><image class="image"  mode="widthFix" src="{{item.image_src}}"/></swiper-item>
+  </swiper>
+</view>
