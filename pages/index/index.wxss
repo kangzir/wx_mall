@@ -1,1 +1,1 @@
-view{color:var(--fontColor)}.swiper_item .image{width:100%}
+view{color:var(--fontColor)}.swiper{width:750rpx;height:340rpx}.swiper_item .image{width:100%}.barlist_box{margin-top:20rpx;display:flex;justify-content:space-around}.barlist_box .barlist_image{width:150rpx;height:150rpx}.goodslist_box{margin-top:50rpx}.goodslist_box .goodslist_title{margin-top:20rpx}.goodslist_box .goodslist_content .contnet_img{width:240rpx;margin-left:10rpx;margin-bottom:5rpx;float:right;height:200rpx}.goodslist_box .goodslist_content .contnet_img:nth-child(1){float:left}

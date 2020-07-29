@@ -8,3 +8,9 @@ page{
   --fontColor:#f8554d;
   font-size: 28rpx;
 }
+.clearfix::before,
+.clearfix::after{
+content: '';
+display: table;
+clear: both;
+}
