@@ -135,9 +135,9 @@ Page({
     const {goodsInfo} = this.data
     const {id} = e.currentTarget.dataset
     const index = goodsInfo.findIndex(v => id === v.goods_id)
-    if(goodsInfo[index].num == 0){
+    if(goodsInfo[index].num == 1){
       wx.showToast({
-        title: '最少0个',
+        title: '最少一个',
         duration: 500,
         mask: false,
       });
@@ -195,6 +195,7 @@ Page({
    */
   onShow: function () {
     const data = wx.getStorageSync('cart');
+    this.calculate()
     this.setData({
       goodsInfo:data
     })

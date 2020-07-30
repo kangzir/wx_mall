@@ -11,9 +11,9 @@
   <view class="details_price">¥ {{goodsObj.goods_price}}</view>
   <view class="details_title">
     <text class="goods_name">{{goodsObj.goods_name}}</text>
-    <view class="shocang">
-      <view class="iconfont icon-icon-"></view>
-      <view class="">收藏</view>
+    <view bind:tap="benCollect" class="shocang">
+      <view class="iconfont {{isCollect?'icon-collection-b':'icon-icon-'}}"></view>
+      <view>收藏</view>
     </view>
   </view>
 </view>

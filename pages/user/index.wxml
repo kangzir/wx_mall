@@ -1,2 +1,55 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!-- pages/user/index.wxml -->
+<view wx:if="{{!userInfo}}" class="topname_box">
+  <button size="mini" open-type="getUserInfo" bindgetuserinfo="getuserinfo" class="btnuser" type="primary" plain>
+    登录
+  </button>
+</view>
+
+<view wx:if="{{userInfo}}" class="user_box">
+  <image class="bgimg_box" src="{{userInfo.avatarUrl}}" />
+  <view class="userinfo">
+    <image class="user_img" mode="widthFix" src="{{userInfo.avatarUrl}}" />
+    <view class="user_name">{{userInfo.nickName}}</view>
+  </view>
+</view>
+<!-- 导航栏 -->
+<view class="user_bar w">
+  <view class="bar_item">
+    <view class="bar_num">0</view>
+    <view class="bar_text">收藏的店铺</view>
+  </view>
+  <view class="bar_item" bind:tap="getcollect">
+    <view class="bar_num">{{collectlength}}</view>
+    <view class="bar_text">收藏的商品</view>
+  </view>
+  <view class="bar_item">
+    <view class="bar_num">0</view>
+    <view class="bar_text">关注的商品</view>
+  </view>
+  <view class="bar_item">
+    <view class="bar_num">0</view>
+    <view class="bar_text">我的组件</view>
+  </view>
+</view>
+<!-- 我的订单 -->
+<view class="user_order w">
+  <view class="order_title">我的订单</view>
+  <view class="order_bar">
+    <view class="order_item" wx:for="{{orderbar}}" wx:key="index">
+      <view class="iconfont {{item.icon}}"></view>
+      <view class="order_text" >{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<!--  -->
+<view class="list_box w">
+  <view class="shohuo">收货地址管理</view>
+  <view class="kefu">
+    <text >联系客服</text>
+    <text >400-618-4000</text>
+    <button open-type="contact"></button>
+  </view>
+  <view >意见反馈 <button open-type="feedback"></button></view>
+  <view >关于我们</view>
+</view>
