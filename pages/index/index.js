@@ -8,13 +8,13 @@ Page({
 
   onLoad: function (options) {
     // 轮播图
-    request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata' }).then(res => {
+    request({ url: '/home/swiperdata' }).then(res => {
       this.setData({
         imglisg: res.data.message
       })
     })
     // 导航栏
-    request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems'})
+    request({url:'/home/catitems'})
     .then( res =>{
       this.setData({
         barlist:res.data.message
@@ -22,7 +22,7 @@ Page({
     })
 
     // 商品展示数据
-    request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata'})
+    request({url:'/home/floordata'})
     .then( res => {
       this.setData({
         goodslist:res.data.message

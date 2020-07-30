@@ -1,2 +1,27 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view>
+  <SearchInput></SearchInput>
+  <view class="cat_box">
+
+    <scroll-view class="left_mant" scroll-y="{{true}}">
+      <view bind:tap="mantTap" data-index="{{index}}" class="left_mant_text {{index == currentIndex ? 'active' : '' }}" wx:for="{{mantlist}}" wx:key="index">
+        {{item}}
+      </view>
+    </scroll-view>
+
+    <scroll-view scroll-top="{{scrollTop}}" class="right_list" scroll-y="{{true}}">
+      <view class="right_list-box" wx:for="{{contentlist}}" wx:key="cat_id" wx:for-item="item1">
+        <view class="right_list_title">
+          / {{item1.cat_name}} /
+        </view>
+          
+        <view class="right_list_children" > 
+          <navigator url="/pages/goods_list/index?id={{item2.cat_id}}" class="right_list_children_nav" wx:for="{{item1.children}}" wx:for-item="item2" wx:key="cat_name">
+            <image mode="widthFix" class="right_list_children_img" src="{{item2.cat_icon}}" />
+            <view >{{item2.cat_name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>

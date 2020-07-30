@@ -1,11 +1,40 @@
 // pages/auth/index.js
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import {request} from '../../network/request'
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    // code:'',
+  },
+  code:'',
 
+   logina(){
+    return new Promise((resolve,rejects) =>{
+      wx.login({
+        timeout:10000,
+        success: (res)=>{
+          resolve(res)
+        },
+        fail: (err)=>{rejects(err)},
+      });
+    })
+  },
+
+  async GetUserInfo(e){
+    const {encryptedData,iv,rawData,signature} = e.detail
+
+    const {code} = await this.logina()
+    const tokenInfo = {encryptedData,iv,rawData,signature,code}
+    const data = await request({url:'/users/wxlogin',data:tokenInfo,method:'post'})
+    console.log(data);
+    if(data.data.meta.status == 400){
+      wx.setStorageSync('token', data.data.meta.msg);
+      wx.navigateTo({
+        url: '/pages/pay/index',
+      });
+    }
   },
 
   /**

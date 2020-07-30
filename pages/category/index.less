@@ -1,0 +1,44 @@
+page{
+  width: 100%;
+}
+.cat_box{
+  height: 100vh;
+  display: flex;
+  .left_mant{
+    flex: 2;
+    text-align: center;
+    .left_mant_text{
+      padding: 20rpx 0;
+    }
+  }
+  .right_list{
+    flex: 5;
+  }
+}
+.active{
+  color: red;
+  border-left: 2px solid red;
+  background-color: rgb(243, 243, 243);
+}
+
+.right_list{
+  .right_list-box{
+    float: left;
+    .right_list_title{
+      text-align: center;
+      margin-top: 40rpx ;
+      padding-bottom: 30rpx;
+    }
+    .right_list_children{
+      text-align: center;
+      margin-left: 30rpx;
+      .right_list_children_nav{
+        margin: 20rpx 30rpx;
+        float: left;
+      }
+      .right_list_children_img{
+        width: 100rpx;
+      }
+    }
+  }
+}

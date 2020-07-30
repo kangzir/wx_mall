@@ -1,2 +1,58 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="address_box">
+  <button wx:if="{{!bdaddress}}" bind:tap="address" class="address_btn" type="primary" plain>添加收货地址</button>
+  <view wx:else>
+    <text>{{bdaddress.provinceName}}</text>
+    <text>{{bdaddress.cityName}}</text>
+    <text>{{bdaddress.countyName}}</text>
+    <text>{{bdaddress.detailInfo}}</text>
+    <view>名字：{{bdaddress.userName}}</view>
+  </view>
+</view>
+
+<!-- 购物车列表 -->
+<view class="cart_box">
+  <view class="cart_title">购物车</view>
+
+  <view class="cart_content">
+    <view class="cart_list" wx:for="{{goodsInfo}}" wx:key="goods_id">
+      <checkbox-group data-id="{{item.goods_id}}" bindchange="cartCheck" class="checkbox">
+        <checkbox checked="{{item.checked}}" />
+      </checkbox-group>
+      <image mode="widthFix" class="cart_img" src="{{item.goods_small_logo}}" />
+      <view class="goodsInfo_text">
+        <!-- 介绍 -->
+        <view class="goodsInfo_text_details">{{item.goods_name}}</view>
+        <!-- 价格 -->
+        <view class="goodsInfo_price_box">
+          <view class="goodsInfo_price">¥{{item.goods_price}}</view>
+          <view class="btnadd_btnremo">
+            <button disabled="{{isremo}}" data-id="{{item.goods_id}}" bind:tap="remonum" class="btnremo" size="mini">-</button>
+            {{item.num}}
+            <button disabled="{{isadd}}" data-id="{{item.goods_id}}"  bind:tap="addnum" class="btnadd" size="mini">+</button>
+          </view>
+        </view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{goodsInfo.length == 0}}" class="kongtishi">
+    <view class="iconfont icon-gouwuchezhengpin"></view>
+    <view class="to_text">购物车为空！！</view>
+    <navigator class="go_category" url="/pages/category/index">去逛逛</navigator>
+  </view>
+</view>
+<!-- 购物车底部栏 -->
+<view class="cart_bar">
+  <checkbox-group class="bar_left" bindchange="allcheck">
+    <checkbox checked="{{ischecked}}" />
+    全选
+  </checkbox-group>
+
+  <view class="bar_right">
+    <view class="bar_price">
+      合计: ¥ {{totlsPri}}
+    </view>
+    <view class="settlement" bind:tap="settlement" type="warn">结算({{totallist}})</view>
+  </view>
+
+</view>
