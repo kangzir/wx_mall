@@ -38,16 +38,6 @@ Page({
           wx.openSetting({
             success: (result2)=>{
               // 用户授权之后跳转到收货地址页面
-              // wx.chooseAddress({
-              //   success: (result3)=>{
-              //     wx.setStorageSync('address', result1);
-
-              //     this.setData({
-              //       bdaddress : wx.getStorageSync('address')
-              //     })
-                  
-              //   },
-              // });
             },
           });
         }

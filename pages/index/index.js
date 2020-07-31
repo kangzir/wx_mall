@@ -3,7 +3,7 @@ Page({
   data: {
     imglisg: [],
     barlist:[],
-    goodslist:[]
+    goodslist:[],
   },
 
   onLoad: function (options) {
@@ -11,8 +11,8 @@ Page({
     request({ url: '/home/swiperdata' }).then(res => {
       this.setData({
         imglisg: res.data.message
-      })
     })
+  })
     // 导航栏
     request({url:'/home/catitems'})
     .then( res =>{
@@ -29,32 +29,4 @@ Page({
       })
     })
   },
-  onReady: function () {
-
-  },
-  onShow: function () {
-
-  },
-  onHide: function () {
-
-  },
-  onUnload: function () {
-
-  },
-  onPullDownRefresh: function () {
-
-  },
-  onReachBottom: function () {
-
-  },
-  onShareAppMessage: function () {
-
-  },
-  onPageScroll: function () {
-
-  },
-  //item(index,pagePath,text)
-  onTabItemTap: function (item) {
-
-  }
 });

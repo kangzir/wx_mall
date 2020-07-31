@@ -31,9 +31,10 @@
   }
 
   .goodsInfo_text_details {
-    white-space: nowrap;
-    overflow: hideden;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
   .goodsInfo_text {
     width: 480rpx;

@@ -1,0 +1,47 @@
+<view wx:if="{{goodsObj}}">
+  <!-- 轮播图 -->
+  <view>
+    <swiper class="swiper" interval="1000" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+      <swiper-item bind:tap="Newimg" data-url="{{item.pics_sma}}" class="swiper_item" wx:for="{{goodsObj.pics}}" wx:key="index">
+        <image class="swiper_img" mode="widthFix" src="{{item.pics_sma}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 介绍 -->
+  <view class="details_text">
+    <view class="details_price">¥ {{goodsObj.goods_price}}</view>
+    <view class="details_title">
+      <text class="goods_name">{{goodsObj.goods_name}}</text>
+      <view bind:tap="benCollect" class="shocang">
+        <view class="iconfont {{isCollect?'icon-collection-b':'icon-icon-'}}"></view>
+        <view>收藏</view>
+      </view>
+    </view>
+  </view>
+  <!-- 图文介绍 -->
+  <view class="goods_info">
+    <view class="goods_info_title">图文详情</view>
+    <view class="goods_info_">
+      <rich-text nodes="{{goodsObj.goods_introduce}}"></rich-text>
+    </view>
+  </view>
+  <!-- 底部导航栏 -->
+  <view class="bottom_bar">
+    <view class="bar_item">
+      <view class="iconfont icon-erji"></view>
+      <view>联系客服</view>
+      <button class="btnopen" open-type="contact">1</button>
+    </view>
+    <view class="bar_item">
+      <view class="iconfont icon-fenxiang"></view>
+      <view>分享</view>
+      <button class="btnopen" open-type="share">1</button>
+    </view>
+    <navigator url="/pages/cart/index" open-type="switchTab" class="bar_item">
+      <view class="iconfont icon-gouwuchezhengpin"></view>
+      <view>购物车</view>
+    </navigator>
+    <view class="bar_item btnCart" bind:tap="joinCart">加入购物车</view>
+    <view class="bar_item btnBuy">立即购买</view>
+  </view>
+</view>

@@ -3,15 +3,17 @@
 </view>
 <!-- 轮播图 -->
 <view class="swiper-box">
-  <swiper class="swiper" interval="1000" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+  <swiper class="swiper" interval="2000" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
     <swiper-item class="swiper_item" wx:key="index" wx:for="{{imglisg}}">
-      <image class="image" mode="widthFix" src="{{item.image_src}}" />
+      <navigator url="/pages/goods_detail/index?goods_id=129">
+        <image class="image" mode="widthFix" src="{{item.image_src}}" />
+      </navigator>
     </swiper-item>
   </swiper>
 </view>
 <!-- 导航栏 -->
 <view class="barlist_box">
-  <navigator wx:for="{{barlist}}" wx:key="name">
+  <navigator url="/pages/category/index" wx:for="{{barlist}}" wx:key="name">
     <image mode="widthFix" class="barlist_image" src="{{item.image_src}}" />
   </navigator>
 </view>
@@ -23,10 +25,9 @@
       <image class="title_img" mode="widthFix" src="{{item1.floor_title.image_src}}" />
     </view>
     <!-- content -->
-    <view  class="goodslist_content clearfix" >
+    <view class="goodslist_content clearfix">
       <view wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2">
-        <navigator>
-                                                        <!-- widthFix   scaleToFill-->
+        <navigator url="/pages/goods_list/index?query=热">
           <image class="contnet_img" src="{{item2.image_src}}" mode="{{index2 == 0 ? 'widthFix' :'scaleToFill'}}" />
         </navigator>
       </view>

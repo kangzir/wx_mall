@@ -1,0 +1,6 @@
+<view class="upimg_box">
+<view class="upimg" wx:for="{{imgs}}" wx:key="index">
+  <image mode="widthFix" class="img" src="{{item}}" />
+  <icon data-index="{{index}}" bind:tap="btnremoimg" class="icon" type="clear" size="18" color="red"></icon>
+</view>
+</view>

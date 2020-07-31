@@ -4,7 +4,7 @@
     <!-- {{tabs[1]}} -->
     <block wx:if="{{index == 0}}">
       <view class="goodslist_box">
-        <navigator wx:if="{{item.goods_small_logo}}" class="goodslist" wx:for="{{goodslist}}" wx:key="cat_id" url="/pages/goods_dateil/index?goods_id={{item.goods_id}}">
+        <navigator wx:if="{{item.goods_small_logo}}" class="goodslist" wx:for="{{goodslist}}" wx:key="cat_id" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
           <image mode="widthFix" class="goodslist_img" src="{{item.goods_small_logo}}" />
           <view class="goodslist_text_box">
             <view class="goodslist_text_name">{{item.goods_name}}</view>

@@ -50,6 +50,8 @@
     <text >400-618-4000</text>
     <button open-type="contact"></button>
   </view>
-  <view >意见反馈 <button open-type="feedback"></button></view>
+  <view >
+    <navigator url="/pages/feedback/index">意见反馈</navigator>
+    </view>
   <view >关于我们</view>
 </view>

@@ -3,10 +3,9 @@
     "pages/index/index",
     "pages/category/index",
     "pages/goods_list/index",
-    "pages/goods_dateil/index",
+    "pages/goods_detail/index",
     "pages/cart/index",
     "pages/collect/index",
-    "pages/order/index",
     "pages/search/index",
     "pages/user/index",
     "pages/feedback/index",
@@ -46,6 +45,7 @@
         "selectedIconPath": "./assets/img/icons/my-o.png"
       }
     ],
+    "selectedColor":"#f8554d",
     "color": "#000",
     "position": "bottom"
   },

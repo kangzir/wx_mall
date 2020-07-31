@@ -1,13 +1,13 @@
-// pages/search/index.js
+import { request } from '../../network/request'
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import {debounce} from '../../utils/util'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    goods: [],
+    isShow:true,
+    inputVal:''
   },
-
+  Time:0,
   /**
    * 生命周期函数--监听页面加载
    */
@@ -15,13 +15,39 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getinput(e) {
+    const { value } = e.detail
+    console.log(value);
+    if(!value.trim()){
+      this.setData({
+        isShow:true,
+        goods:[]
+      })
+      return
+    }
+    this.setData({
+      isShow:false
+    })
+    clearTimeout(this.Time)
+    this.Time = setTimeout(() => {
+      this._getgoodsList(value)
+    }, 1000);
   },
 
+  async _getgoodsList(query) {
+    const { data } = await request({ url: '/goods/qsearch', data: { query } })
+    console.log(data);
+    this.setData({
+      goods: data.message
+    })
+  },
+  getremo(){
+    this.setData({
+      isShow:true,
+      goods: [],
+      inputVal:''
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -29,38 +55,4 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

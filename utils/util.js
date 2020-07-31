@@ -1,19 +1,10 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
+export  function debounce(func, delay) {
+  let timer = 0 //借助闭包
+  return function (...args) {
+    if (timer) clearTimeout(timer) 
+        
+    timer = setTimeout(() => {
+      func.apply(this, args) //需要把他重新指向debounce函数
+    }, delay)
+  }
 }

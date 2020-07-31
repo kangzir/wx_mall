@@ -1,7 +1,7 @@
 <view class="address_box">
-  <button wx:if="{{!bdaddress}}" bind:tap="address" class="address_btn" type="primary" plain>添加收货地址</button>
+  <button wx:if="{{!bdaddress}}" size="mini" bind:tap="address" class="address_btn" type="primary" plain>添加收货地址</button>
   <view wx:else>
-    <text>{{bdaddress.provinceName}}</text>
+    <text>地址：{{bdaddress.provinceName}}</text>
     <text>{{bdaddress.cityName}}</text>
     <text>{{bdaddress.countyName}}</text>
     <text>{{bdaddress.detailInfo}}</text>
@@ -35,10 +35,11 @@
       </view>
     </view>
   </view>
+  <!-- 购物车为空时显示 -->
   <view wx:if="{{goodsInfo.length == 0}}" class="kongtishi">
     <view class="iconfont icon-gouwuchezhengpin"></view>
     <view class="to_text">购物车为空！！</view>
-    <navigator class="go_category" url="/pages/category/index">去逛逛</navigator>
+    <navigator class="go_category" url="/pages/category/index" open-type="switchTab">去逛逛</navigator>
   </view>
 </view>
 <!-- 购物车底部栏 -->

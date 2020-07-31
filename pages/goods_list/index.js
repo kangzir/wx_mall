@@ -32,9 +32,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {id} = options
-    console.log(id);
-    this.data.goodsInfo.cid = id
+    console.log(options);
+    // 如果有id赋值id没有赋值空字符串
+    this.data.goodsInfo.cid = options.id || ''
+    // 如果有query赋值query没有赋值空字符串
+    this.data.goodsInfo.query = options.query || ''
 
     this._getGoodsList(this.data.goodsInfo)
   },
